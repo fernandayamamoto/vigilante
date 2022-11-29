@@ -15,7 +15,6 @@ class PagesController < ApplicationController
         helpers.asset_url("https://res.cloudinary.com/dwvglguvp/image/upload/v1669731800/pin_ladrao-removebg-preview_gdzctb.png
         ")
       }
-      
     end
   end
 end
