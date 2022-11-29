@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
     @incidents = Incident.all
-      # The `geocoded` scope filters only incidents with coordinates
+    # The `geocoded` scope filters only incidents with coordinates
     @markers = @incidents.geocoded.map do |incident|
       {
         lat: incident.latitude,
@@ -15,7 +15,6 @@ class PagesController < ApplicationController
         helpers.asset_url("https://res.cloudinary.com/dwvglguvp/image/upload/v1669731800/pin_ladrao-removebg-preview_gdzctb.png
         ")
       }
-      
     end
   end
 end
