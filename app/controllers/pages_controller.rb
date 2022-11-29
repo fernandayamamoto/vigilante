@@ -7,11 +7,10 @@ class PagesController < ApplicationController
     @markers = @incidents.geocoded.map do |incident|
       {
         lat: incident.latitude,
-        lng: incident.longitude
+        lng: incident.longitude,
         info_window: render_to_string(partial:
-        "info_window", location: {incident: incident} )
+        "info_window", location: {incident: incident})
       }
-      
     end
   end
 end
