@@ -11,6 +11,7 @@ class PagesController < ApplicationController
         info_window: render_to_string(partial:
         "info_window", location: {incident: incident})
       }
+      
     end
   end
 end
