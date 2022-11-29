@@ -9,8 +9,9 @@ class PagesController < ApplicationController
         lat: incident.latitude,
         lng: incident.longitude
         info_window: render_to_string(partial:
-        "info_window", location: {incident: incident})
+        "info_window", location: {incident: incident} )
       }
+      
     end
   end
 end
