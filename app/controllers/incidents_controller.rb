@@ -1,6 +1,6 @@
 class IncidentsController < ApplicationController
   def show
-    @incident = Incident.find(params[:id])
+    @incidents = Incident.find(params[:id])
     # The `geocoded` scope filters only incidents with coordinates
     @markers = @incidents.geocoded.map do |incident|
     {
@@ -12,8 +12,8 @@ class IncidentsController < ApplicationController
       image_url:
       helpers.asset_url("https://res.cloudinary.com/dwvglguvp/image/upload/c_crop,h_210/v1669731800/pin_ladrao-removebg-preview_gdzctb.png")
     }
+    end
   end
-end
 
   def new
     @incident = Incident.new
@@ -23,7 +23,7 @@ end
     #Falta a parte do geocoding
     @incident = Incident.new(incident_params)
     if @incident.save
-      redirect_to incident_path(@incident)
+      redirect_to @incident
     else
       render :new, status: :unprocessable_entity
     end
