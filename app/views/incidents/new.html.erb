@@ -1,2 +1,15 @@
-<h3>Relatar um incidente</h3>
- <%= render "form", incident: @incident %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class= "incident-form">
+      <h3>Relatar um incidente</h2>
+        <%= simple_form_for(@incident) do |f| %>
+        <div class="form-group">
+          <%= f.input :incident_type, class: "form-control" %>
+          <%= f.input :location %>
+          <%= f.input :description %>
+          <%= f.button :submit, "Relatar incidente", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>
