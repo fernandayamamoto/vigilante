@@ -5,7 +5,7 @@
       <h3>Relatar um incidente</h2>
         <%= simple_form_for(@incident) do |f| %>
         <div class="form-group">
-          <%= f.input :incident_type, class: "form-control" %>
+          <%= f.input :incident_type, class: "form-control dropdown", collection: Incident::TYPES %>
           <%= f.input :location %>
           <%= f.input :description %>
           <%= f.button :submit, "Relatar incidente", class: "btn btn-primary" %>
