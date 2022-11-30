@@ -1,2 +1,2 @@
-<h5><%= link_to incident.incident_type, new_incident_path, class: 'text-dark' %></h5>
+<h5><%= link_to incident.incident_type, incident_path(incident), class: 'text-dark' %></h5>
 <p><%= incident.location %></p>
