@@ -1,9 +1,12 @@
-<div class="d-flex justify-content-between text-center ">
+<div class="d-flex justify-content-between text-center">
   <div class="row w-100">
     <div class="col-sm-12 col-md-6">
-      <h3> Incidente: <%= @incident.incident_type %></h3>
-      <p> Endereço: <%= @incident.location %></p>
-      <p> Descrição: <%= @incident.description%></p>
+      <h4 class= "mt-4"><strong>Incidente:</strong> <%= @incident.incident_type %></h4>
+      <hr>
+      <p><strong>Endereço:</strong> <%= @incident.location %></p>
+      <hr>
+      <p><strong>Descrição:</strong> <%= @incident.description%></p>
+      <hr>
       <%= link_to "Editar", edit_incident_path(@incident), class: 'btn btn-primary mt-3' %>
       <br>
       <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-primary mt-3'%>
