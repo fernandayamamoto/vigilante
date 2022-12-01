@@ -1,6 +1,7 @@
 class IncidentsController < ApplicationController
+  before_action :set_incident, only: %i[show edit update destroy]
+
   def show
-    @incident = Incident.find(params[:id])
     if @incident.incident_type == "Roubo"
       link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_ROUBO-removebg-preview_ltnpyp.png"
     elsif @incident.incident_type == "Furto"
@@ -35,7 +36,27 @@ class IncidentsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @incident.update(incident_params)
+      redirect_to @incident, notice: "Incidente editado com sucesso!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @incident.destroy
+    redirect_to home_path, status: :see_other
+  end
+
   private
+
+  def set_incident
+    @incident = Incident.find(params[:id])
+  end
 
   def incident_params
     params.require(:incident).permit(:incident_type, :location, :description)
