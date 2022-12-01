@@ -5,9 +5,12 @@
       <h3> <%= @incident.incident_type %></h3>
       <p> <i class="fa-solid fa-location-dot"></i> <%= @incident.location %></p>
       <p><em>"<%= @incident.description%>"</em></p>
-
-      <%= link_to "Editar", edit_incident_path(@incident), class: 'btn btn-outline-secondary mt-3' %>
-      <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-outline-secondary mt-3'%>
+      <% if policy(@incident).edit? %>
+        <%= link_to "Editar", edit_incident_path(@incident), class: 'btn btn-outline-secondary mt-3' %>
+      <% end %>
+      <% if policy(@incident).destroy? %>
+        <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-outline-secondary mt-3'%>
+      <% end %>
   </div>
     <div class="col-6">
       <div style="width: 100%; height: 100vh;"
