@@ -1,5 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon vw-100">
+  <div class="container-fluid"
+  
     <%= link_to home_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/c_crop,h_120,w_500/v1669928262/development/vigilante/VIGIL_NTE-removebg-preview_rbiuwn.png" %>
     <% end %>
@@ -12,17 +13,21 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
+
             <%= link_to new_incident_path, class: "nav-link" do %>
              <i class="fa-solid fa-triangle-exclamation" style= "font-size: 30px;"></i>
             <% end %>
+
           </li>
           <li class="nav-item active">
               <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link" do %>
               <i class="fa-solid fa-user-police" style= "font-size: 30px;"></i>
               <% end %>
           </li>
+
           <li class="nav-item dropdown">
             <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669923543/development/vigilante/avatar_c4ytkf.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

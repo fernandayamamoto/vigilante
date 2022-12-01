@@ -6,8 +6,12 @@
       <h3>Relatar um incidente</h2>
         <%= simple_form_for(@incident) do |f| %>
         <div class="form-group">
-          <%= f.input :incident_type, label: 'Tipo de incidente', class: "form-control dropdown", collection: Incident::TYPES %>
-          <%= f.input :location, label: 'Localização' %>
+          <%= f.input :incident_type,  label: 'Tipo de incidente', class: "form-control dropdown", collection: Incident::TYPES %>
+          <%= f.input :location,
+            label: 'Localização',
+            input_html: {data: {address_autocomplete_target: "location"}, class: 'd-none m-0'},
+            wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+          %>
           <%= f.input :description, label: 'Descrição' %>
           <%= f.button :submit, "Relatar incidente", class: "btn btn-primary" %>
         <% end %>

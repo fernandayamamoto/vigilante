@@ -13,8 +13,17 @@
   }
   .btn {
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    background-color: #6e858f;
+    color: white;
+    border-radius: 20px;
   }
+
+  .btn:hover {
+    background-color: #69655f;
+    transition: 0.7s;
+  }
+
 
   .form-control {
     border-radius: 20px;
