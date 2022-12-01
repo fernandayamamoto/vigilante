@@ -1,22 +1,20 @@
-<div class="d-flex justify-content-between text-center ">
-  <div class="row w-100">
-    <div class="col-sm-12 col-md-6">
-      <h3> Incidente: <%= @incident.incident_type %></h3>
-      <p> Endereço: <%= @incident.location %></p>
-      <p> Descrição: <%= @incident.description%></p>
-      <% if policy(@incident).edit? %>
-        <%= link_to "Editar", edit_incident_path(@incident), class: 'btn btn-primary mt-3' %>
-      <% end %>
-      <br>
-      <% if policy(@incident).destroy? %>
-        <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-primary mt-3'%>
-      <% end %>
-    </div>
-    <div class="col-sm-6">
-      <div style="width: 100%; height: 600px;"
+
+<div class="d-flex justify-content-between text-center w-100 ">
+  <div class="row w-100 align-items-center bg-white">
+    <div class="col-sm-12 col-md-6 mt-5">
+      <h3> <%= @incident.incident_type %></h3>
+      <p> <i class="fa-solid fa-location-dot"></i> <%= @incident.location %></p>
+      <p><em>"<%= @incident.description%>"</em></p>
+
+      <%= link_to "Editar", edit_incident_path(@incident), class: 'btn btn-outline-secondary mt-3' %>
+      <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-outline-secondary mt-3'%>
+  </div>
+    <div class="col-6">
+      <div style="width: 100%; height: 100vh;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
     </div>
   </div>
 </div>

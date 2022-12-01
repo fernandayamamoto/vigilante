@@ -5,14 +5,25 @@ class PagesController < ApplicationController
     @incidents = Incident.all
     # The `geocoded` scope filters only incidents with coordinates
     @markers = @incidents.geocoded.map do |incident|
+      if incident.incident_type == "Roubo"
+        link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_ROUBO-removebg-preview_ltnpyp.png"
+      elsif incident.incident_type == "Furto"
+        link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_FURTO-removebg-preview_jmgj8x.png"
+      elsif incident.incident_type == "Assédio"
+        link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_ASS%C3%89DIO-removebg-preview_ppm6kf.png"
+      else
+        link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_OUTROS-removebg-preview_sisizq.png"
+      end
       {
         lat: incident.latitude,
         lng: incident.longitude,
-        info_window: render_to_string(partial:
 
-        "info_window", locals: {incident: incident}),
-        image_url:
-        helpers.asset_url("https://res.cloudinary.com/dwvglguvp/image/upload/c_crop,h_210/v1669731800/pin_ladrao-removebg-preview_gdzctb.png")
+        info_window: render_to_string(
+          partial: "info_window",
+          locals: {incident: incident}
+        ),
+        image_url: helpers.asset_url("https://res.cloudinary.com/dwvglguvp/image/upload/c_crop,h_210/v1669731800/pin_ladrao-removebg-preview_gdzctb.png")
+
       }
     end
   end

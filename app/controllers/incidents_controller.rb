@@ -8,7 +8,7 @@ class IncidentsController < ApplicationController
     elsif @incident.incident_type == "Furto"
       link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_FURTO-removebg-preview_jmgj8x.png"
     elsif @incident.incident_type == "Assédio"
-      link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_ASS%C3%89DIO-removebg-preview_ppm6kf.png"
+      link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669922146/PIN_ASS%C3%89DIO_itt9oh.png"
     else
       link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_OUTROS-removebg-preview_sisizq.png"
     end
