@@ -2,7 +2,7 @@
 <div class="d-flex justify-content-between text-center w-100 ">
   <div class="row w-100 align-items-center bg-white">
     <div class="col-sm-12 col-md-6 mt-5">
-      <h3> <%= @incident.incident_type %></h3>
+      <h3> <strong><%= @incident.incident_type %></strong></h3>
       <p> <i class="fa-solid fa-location-dot"></i> <%= @incident.location %></p>
       <p><em>"<%= @incident.description%>"</em></p>
       <% if policy(@incident).edit? %>
