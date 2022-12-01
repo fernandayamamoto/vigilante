@@ -1,3 +1,4 @@
+
 <div class="d-flex justify-content-between text-center w-100 ">
   <div class="row w-100 align-items-center bg-white">
     <div class="col-sm-12 col-md-6 mt-5">
@@ -7,7 +8,7 @@
 
       <%= link_to "Editar", edit_incident_path(@incident), class: 'btn btn-outline-secondary mt-3' %>
       <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-outline-secondary mt-3'%>
-    </div>
+  </div>
     <div class="col-6">
       <div style="width: 100%; height: 100vh;"
         data-controller="map"
