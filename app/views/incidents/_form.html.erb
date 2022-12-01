@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class= "incident-form text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/2797/2797388.png" alt="alert" width="50" height="50">
+      <h3>Relatar um incidente</h2>
+        <%= simple_form_for(@incident) do |f| %>
+        <div class="form-group">
+          <%= f.input :incident_type, class: "form-control dropdown", collection: Incident::TYPES %>
+          <%= f.input :location %>
+          <%= f.input :description %>
+          <%= f.button :submit, "Relatar incidente", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,13 @@
       <h3> Incidente: <%= @incident.incident_type %></h3>
       <p> Endereço: <%= @incident.location %></p>
       <p> Descrição: <%= @incident.description%></p>
+      <% if policy(@incident).edit? %>
+        <%= link_to "Editar", edit_incident_path(@incident), class: 'btn btn-primary mt-3' %>
+      <% end %>
+      <br>
+      <% if policy(@incident).destroy? %>
+        <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-primary mt-3'%>
+      <% end %>
     </div>
     <div class="col-sm-6">
       <div style="width: 100%; height: 600px;"
