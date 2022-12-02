@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon vw-100">
-  <div class="container-fluid text-light"
+  <div class="container-fluid text-light">
     <%= link_to home_path, class: "navbar-brand " do %>
       <%= "VIGILANTE" %>
     <% end %>
@@ -19,21 +19,20 @@
 
           </li>
           <li class="nav-item active">
-              <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link btn btn-secondary text-white mx-2" do %>
-              <%= "Comunicar ocorrência" %>
+              <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link text-white mx-2" do %>
+              <%= "B.O" %>
               <% end %>
           </li>
 
           <li class="nav-item dropdown">
             <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669923543/development/vigilante/avatar_c4ytkf.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
           <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <li class="nav-item ">
+            <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
           </li>
         <% end %>
       </ul>
