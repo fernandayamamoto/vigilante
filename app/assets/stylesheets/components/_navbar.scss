@@ -29,4 +29,21 @@
   color: #fff
 }
 
+.nav-link {
+  border-radius: 20px;
+}
 
+.nav-link:hover {
+  background-color: #69655f;
+  transition: 0.5s;
+}
+
+#navbarDropdown:hover {
+  opacity: 0.6;
+  transition: 0.5s
+}
+
+.navbar-brand:hover {
+  color: #cbc5ba;
+  transition: 0.5s
+}
