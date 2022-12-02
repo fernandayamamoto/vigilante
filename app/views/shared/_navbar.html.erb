@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#path", class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669839964/development/vigilante/Design_sem_nome_c9wn8x.png" %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon vw-100">
+  <div class="container-fluid text-light"
+    <%= link_to home_path, class: "navbar-brand " do %>
+      <%= "VIGILANTE" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,18 +12,26 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Relatar incidente", new_incident_path, class: "nav-link" %>
+
+            <%= link_to new_incident_path, class: "nav-link text-white" do %>
+              <%= "Relatar Incidente" %>
+            <% end %>
+
           </li>
-          <li class="nav-item">
-              <%= link_to "Comunicar ocorrência", "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link" %>
+          <li class="nav-item active">
+              <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link text-white" do %>
+              <%= "B.O." %>
+              <% end %>
           </li>
+
           <li class="nav-item dropdown">
-            <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669813564/development/vigilante/Design_sem_nome_suzbh1.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669923543/development/vigilante/avatar_c4ytkf.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
-        <% else %>
+          <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
