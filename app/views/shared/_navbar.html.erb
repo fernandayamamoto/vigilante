@@ -13,14 +13,14 @@
         <% if user_signed_in? %>
           <li class="nav-item active">
 
-            <%= link_to new_incident_path, class: "nav-link text-white" do %>
-              <%= "Relatar Incidente" %>
+            <%= link_to new_incident_path, class: "nav-link btn btn-secondary text-white" do %>
+              <%= "Relatar incidente" %>
             <% end %>
 
           </li>
           <li class="nav-item active">
-              <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link text-white" do %>
-              <%= "B.O." %>
+              <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link btn btn-secondary text-white mx-2" do %>
+              <%= "Comunicar ocorrência" %>
               <% end %>
           </li>
 
