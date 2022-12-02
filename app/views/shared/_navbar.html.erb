@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon vw-100">
   <div class="container-fluid text-light">
-    <%= link_to home_path, class: "navbar-brand " do %>
-      <%= "VIGILANTE" %>
+    <%= link_to home_path, class: "navbar-brand" do %>
+      <%= "VIG!LANTE" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,13 +13,13 @@
         <% if user_signed_in? %>
           <li class="nav-item active">
 
-            <%= link_to new_incident_path, class: "nav-link btn btn-secondary text-white mx-2" do %>
+            <%= link_to new_incident_path, class: "nav-link btn text-white border" do %>
               <%= "Relatar incidente" %>
             <% end %>
 
           </li>
           <li class="nav-item active">
-              <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link btn btn-secondary text-white mx-2" do %>
+              <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia", class: "nav-link btn text-white border mx-2" do %>
               <%= "Comunicar B.O" %>
               <% end %>
           </li>
