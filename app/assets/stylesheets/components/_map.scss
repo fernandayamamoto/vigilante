@@ -1,11 +1,49 @@
 .mapboxgl-popup {
   max-width: 200px;
 }
+.mapboxgl-popup.roubo {
+  max-width: 200px;
+
+  .mapboxgl-popup-content {
+    background: #FF5555 !important;
+  }
+}
+
+.mapboxgl-popup.furto {
+  max-width: 200px;
+
+  .mapboxgl-popup-content {
+    background: #FFDE59 !important;
+  }
+}
+
+.mapboxgl-popup.assedio {
+  max-width: 200px;
+
+  .mapboxgl-popup-content {
+    background: rgb(191, 202, 28) !important;
+  }
+}
+
+.mapboxgl-popup.policia {
+  max-width: 200px;
+
+  .mapboxgl-popup-content {
+    background: #A3D5E0 !important;
+  }
+}
+
+.mapboxgl-popup.outros {
+  max-width: 200px;
+
+  .mapboxgl-popup-content {
+    background: #102B4C !important;
+  }
+}
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
-
   a {
     text-decoration: none;
     border: none;
