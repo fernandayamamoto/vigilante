@@ -85,6 +85,24 @@ export default class extends Controller {
 
      this.map.addControl(directions, 'top-left');
     })
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(position => {
+          var map = new mapboxgl.Map({
+          // container id specified in the HTML
+            container: 'map',
+
+             // style URL
+            style: 'mapbox://styles/mapbox/light-v10',
+
+           // initial position in [lon, lat] format
+            center: [position.coords.longitude, position.coords.latitude],
+
+           // initial zoom
+
+           zoom: 14
+          });
+      });
+  } else {}
   };
 
   addBackgroundToPopup(marker, popup) {
