@@ -6,7 +6,8 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     points: Object,
-    markers: Array
+    markers: Array,
+    marker: Object
   }
 
   connect() {
@@ -14,6 +15,7 @@ export default class extends Controller {
 
     navigator.geolocation.getCurrentPosition((position)=>{
       this.userLocation = [position.coords.longitude, position.coords.latitude]
+      this.markerLocation = [this.markerValue.lng, this.markerValue.lat]
 
         // an arbitrary start will always be the same
         // only the end or destination will change
@@ -32,7 +34,11 @@ export default class extends Controller {
 
       this.#addMarkersToMap()
       // this.#fitMapToMarkers()
-      this.#fitMapToUser(this.userLocation)
+      if (this.markerValue.hasOwnProperty('lat')) {
+        this.#fitMapToMarker(this.markerLocation)
+      } else {
+        this.#fitMapToUser(this.userLocation)
+      }
 
 
       const directions = new MapboxDirections({
@@ -127,6 +133,9 @@ export default class extends Controller {
     bounds.extend(userLocation)
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
-
-
+  #fitMapToMarker(markerLocation) {
+    const bounds = new mapboxgl.LngLatBounds()
+    bounds.extend(markerLocation)
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
 };
