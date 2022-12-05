@@ -5,10 +5,11 @@
   <div class="messages" data-chatroom-subscription-target="messages">
     <h1>#<%= @chatroom.name %></h1>
 
-  <div class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
+    <div class="messages" data-chatroom-subscription-target="messages">
+      <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
   </div>
 
   <%= simple_form_for [@chatroom, @message],
@@ -21,4 +22,4 @@
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
-  </div>
+</div>
