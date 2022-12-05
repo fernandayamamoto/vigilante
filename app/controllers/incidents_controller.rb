@@ -13,14 +13,13 @@ class IncidentsController < ApplicationController
       link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_OUTROS-removebg-preview_sisizq.png"
     end
 
-    @markers = [
+    @marker =
       {
         lat: @incident.latitude,
         lng: @incident.longitude,
         info_window: render_to_string(partial: "pages/info_window", locals: {incident: @incident}),
         image_url: helpers.asset_url(link_url)
       }
-    ]
   end
 
   def new
