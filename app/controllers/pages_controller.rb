@@ -11,6 +11,8 @@ class PagesController < ApplicationController
         link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_FURTO-removebg-preview_jmgj8x.png"
       elsif incident.incident_type == "Assédio"
         link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669926859/PIN_ASS%C3%89DIO_w3nz5l.png"
+      elsif incident.incident_type == "polícia"
+        link_url = "https://res.cloudinary.com/dwvglguvp/image/upload/v1670244032/development/vigilante/PIN_VIgilante-removebg-preview_cdthq2.png"
       else
         link_url = "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_OUTROS-removebg-preview_sisizq.png"
       end

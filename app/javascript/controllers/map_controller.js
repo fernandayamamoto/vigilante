@@ -14,7 +14,6 @@ export default class extends Controller {
 
     navigator.geolocation.getCurrentPosition((position)=>{
       this.userLocation = [position.coords.longitude, position.coords.latitude]
-      console.log(this.userLocation)
 
         // an arbitrary start will always be the same
         // only the end or destination will change
@@ -82,9 +81,28 @@ export default class extends Controller {
     })
   };
 
+  addBackgroundToPopup(marker, popup) {
+    if (marker.image_url === "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_ROUBO-removebg-preview_ltnpyp.png") {
+      popup.addClassName("roubo")
+    }
+    if (marker.image_url === "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_FURTO-removebg-preview_jmgj8x.png") {
+      popup.addClassName("furto")
+    }
+    if (marker.image_url === "https://res.cloudinary.com/deofzbzjp/image/upload/v1669926859/PIN_ASS%C3%89DIO_w3nz5l.png") {
+      popup.addClassName("assedio")
+    }
+    if (marker.image_url === "https://res.cloudinary.com/dwvglguvp/image/upload/v1670244032/development/vigilante/PIN_VIgilante-removebg-preview_cdthq2.png") {
+      popup.addClassName("policia")
+    }
+    if (marker.image_url === "https://res.cloudinary.com/deofzbzjp/image/upload/v1669836325/PIN_OUTROS-removebg-preview_sisizq.png") {
+      popup.addClassName("outros")
+    }
+  }
+
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      this.addBackgroundToPopup(marker, popup)
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
@@ -92,7 +110,7 @@ export default class extends Controller {
       customMarker.style.width = "60px"
       customMarker.style.height = "60px"
 
-    new mapboxgl.Marker(customMarker)
+      new mapboxgl.Marker(customMarker)
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(this.map)
@@ -109,5 +127,6 @@ export default class extends Controller {
     bounds.extend(userLocation)
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
+
 
 };
