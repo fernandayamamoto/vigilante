@@ -10,6 +10,19 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+    <style>
+      <% if current_user %>
+      <%= ".message-chat.message-user-#{current_user.id}" %>  {
+        background-color: blue;
+        color: white;
+        flex-direction: row;
+      }
+       <%= ".message-chat.message-user-#{current_user.id} .gap-chat" %>  {
+        text-align: start;
+        justify-content: flex-start;
+      }
+      <% end %>
+    </style>
   </head>
 
   <body>

@@ -1,8 +1,8 @@
-<div class="container chatroom"
+<div class="container chatroom justify-content-center"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <div class="messages" data-chatroom-subscription-target="messages">
+  <div class="messages d-flex align-items-center" data-chatroom-subscription-target="messages">
     <h1>#<%= @chatroom.name %></h1>
 
     <div class="messages" data-chatroom-subscription-target="messages">
@@ -18,8 +18,8 @@
   <%= f.input :content,
     label: false,
     placeholder: "Message ##{@chatroom.name}",
-    wrapper_html: {class: "flex-grow-1"}
+    wrapper_html: {class: "flex-grow-1", style: "margin-bottom: 0px !important"}
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <%= f.submit "Enviar", class: "btn btn-main" %>
   <% end %>
 </div>
