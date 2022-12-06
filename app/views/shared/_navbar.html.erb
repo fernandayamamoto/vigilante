@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon vw-100">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
   <div class="container-fluid text-light">
     <%= link_to home_path, class: "navbar-brand" do %>
       <%= "VIG!LANTE" %>
@@ -12,11 +12,9 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-
             <%= link_to new_incident_path, class: "nav-link btn text-white border" do %>
               <%= "Relatar incidente" %>
             <% end %>
-
           </li>
           <li class="nav-item active">
               <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia",target: '_blank', class: "nav-link btn text-white border mx-2" do %>
