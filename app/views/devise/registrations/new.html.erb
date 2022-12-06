@@ -8,11 +8,17 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
+
           <%= f.input :email,
-                placeholder: 'hermione@gmail.com',
+                placeholder: 'davis_roberto@gmail.com',
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+          <%= f.input :nickname,
+                placeholder: '',
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "nickname" }%>
           <%= f.input :password,
                 label: 'Senha',
                 placeholder: '••••••',
