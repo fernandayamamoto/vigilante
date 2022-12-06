@@ -27,7 +27,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669923543/development/vigilante/avatar_c4ytkf.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= current_user.nickname %>
+              <p class="text-center mt-2"> <%= current_user.nickname %> </p>
               <hr>
               <%= link_to "Chatroom", '/chatrooms/1', class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
