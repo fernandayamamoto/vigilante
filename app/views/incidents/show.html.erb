@@ -13,6 +13,11 @@
       <% if policy(@incident).destroy? %>
         <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-outline-secondary mt-3'%>
       <% end %>
+      <% if current_user == @incident.user %>
+        <%= link_to "Ver chatrooms", incident_chatrooms_path(@incident) %>
+      <% else %>
+        <%= link_to "Chatroom", incident_chatrooms_path(@incident), data: {turbo_method: :post}, class: 'btn btn-outline-secondary mt-3' %>
+      <% end %>
   </div>
     <div class="col-6">
       <div style="width: 100%; height: 100vh;"
