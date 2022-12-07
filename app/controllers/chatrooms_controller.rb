@@ -6,14 +6,14 @@ after_action :skip_authorization
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     @chatrooms_all = policy_scope(Chatroom)
-    @chatrooms = Chatroom.where(user: current_user)
+    @chatrooms = Chatroom.where(user: current_user).or(Chatroom.where(user_two: current_user))
   end
 
   def create
     @incident = Incident.find(params[:incident_id])
     @user = @incident.user
     @user_two = current_user
-    @chatroom = Chatroom.create(user: @user, user_two: @user_two, name: "#{@user.nickname}-#{@user_two.nickname}")
+    @chatroom = Chatroom.create(user: @user, user_two: @user_two, name: "#{@user.nickname}-#{@user_two.nickname}", incident: @incident)
     redirect_to chatroom_path(@chatroom)
   end
 
