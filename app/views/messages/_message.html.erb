@@ -1,9 +1,13 @@
+
 <div id="message-<%= message.id %>">
   <div class="message-chat message-user-<%= message.user.id %>">
     <%= cl_image_tag current_user.photo.key, :width=>50, :height=>50, :gravity=>"face", :crop=>"fill", class:"avatar dropdown-toggle", id:"navbarDropdown", "type" => "button", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" %>
 
     <div class="d-flex w-100 gap-chat flex-column">
-      <small>
+      <small class="container-white">
+        <% if message.chatroom.user.avatar %>
+          <%= image_tag message.chatroom.user.avatar, class: "avatar-chat" %>
+        <% end %>
         <strong><%= message.user.nickname %></strong>
         <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
       </small>
