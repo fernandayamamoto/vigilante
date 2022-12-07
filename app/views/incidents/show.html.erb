@@ -2,6 +2,7 @@
   <div class="row w-100 align-items-center bg-white ps-3">
     <div class="col-sm-12 col-md-6 mt-2">
       <h4> <strong> <%= @incident.incident_type %> </strong></h4>
+      <if address>
       <p class="mb-5"> Incidentes na região: <%= @incident.nearbys(2).count(:all) %>
       </p>
       <div class="mt-5 mb-4">
