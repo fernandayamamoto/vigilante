@@ -41,7 +41,7 @@
     <h2>Chatrooms</h2>
     <ul class="list-group">
       <% @chatrooms.each do |chat| %>
-
+        <li><%= image_tag "boy.png", class: "avatar-chat" %> <%= link_to chat.name, chatroom_path(chat) %></li>
       <% end %>
     </ul>
   </div>
