@@ -31,11 +31,13 @@
 
 .nav-link {
   border-radius: 20px;
-}
+ }
 
 .nav-link:hover {
-  background-color: #69655f;
-  transition: 0.5s;
+  border: 25px;
+  border-radius: 20px;
+  // background-color: #69655f;
+  // transition: 0.5s;
 }
 
 #navbarDropdown:hover {

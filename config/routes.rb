@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   # root to: "pages#home", as: 'home'
 
   root to: 'pages#landing'
-  get '/home', to: 'pages#home', as: "home"
+  get '/home', to: 'pages#home', as: 'home'
   get 'list', to: 'pages#list', as: 'list'
-
+  get 'list_2', to: 'pages#list_2', as: 'list_2'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

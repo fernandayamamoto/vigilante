@@ -1,0 +1,22 @@
+<div class="list">
+  <main>
+    <div class="container-title">
+      <strong><h3>Bairros mais seguros de São Paulo: </h3></strong>
+    </div>
+
+    <div class="container ">
+      <ol class="danger-list-2">
+        <li> Jardim Paulista: <%= Incident.near([-23.56914113343172, -46.65676733765668],5).count(:all) %> incidentes </li>
+        <li> Itaim Bibi: <%= Incident.near([-23.584055944102875, -46.67814470913056],5).count(:all) %> incidentes </li>
+        <li> Moema: <%= Incident.near([-23.601923959751666, -46.67215670242777],5).count(:all) %> incidentes </li>
+        <li> Perdizes: <%= Incident.near([-23.53593260609017, -46.67574100148111],5).count(:all) %> incidentes </li>
+        <li> Alto de Pinheiros: <%= Incident.near([-23.550026536931686, -46.71416699946463],5).count(:all) %> incidentes </li>
+        <li> Brooklin: <%= Incident.near([-23.609440448910338, -46.68163757632627],5).count(:all) %> incidentes </li>
+        <li> Campo Belo: <%= Incident.near([-23.620728652172694, -46.67255870249377],5).count(:all) %> incidentes </li>
+        <li> Jardins: <%= Incident.near([-23.57297626616848, -46.67310591900806],5).count(:all) %> incidentes </li>
+        <li> Vila Mariana: <%= Incident.near([-23.586352292630227, -46.645875293487975],5).count(:all) %> incidentes </li>
+        <li> Vila Nova Conceição: <%= Incident.near([-23.592903270352213, -46.67707103368314],5).count(:all) %> incidentes </li>
+      </ol>
+    </div>
+  </main>
+</div>
