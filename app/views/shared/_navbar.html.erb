@@ -32,16 +32,21 @@
             </ul>
           </li>
 
-            <li class="nav-item dropdown">
-              <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669923543/development/vigilante/avatar_c4ytkf.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <p class="text-center mt-2"> <%= current_user.nickname %> </p>
-                  <hr>
-                  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-                </div>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669923543/development/vigilante/avatar_c4ytkf.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <p class="text-center mt-2"> <%= current_user.nickname %> </p>
+                <hr>
+                <% chat = Chatroom.where(user: current_user).or(Chatroom.where(user_two: current_user)) %>
+                  <% if chat.present? %>
+                    <%= link_to "Chatrooms", chatroom_path(chat[0]) %>
+                  <% end %>
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              </div>
             </li>
+
         <% else %>
-          <li class="nav-item ">
+          <li class="nav-item" >
             <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
           </li>
         <% end %>
