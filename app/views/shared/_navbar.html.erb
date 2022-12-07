@@ -33,8 +33,11 @@
           </li>
 
           <li class="nav-item dropdown">
-            <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/v1669923543/development/vigilante/avatar_c4ytkf.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+           <%if current_user && current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, :width=>50, :height=>50, :gravity=>"face", :crop=>"fill", class:"avatar dropdown-toggle", id:"navbarDropdown", "type" => "button", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" %>              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%elsif current_user && !current_user.photo.attached?%>
+            <%=image_tag "alert.png", :width=>25, :height=>25, :gravity=>"face", :crop=>"fill", class:"avatar dropdown-toggle", id:"navbarDropdown", "type" => "button", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"%>
+          <% end %>
                 <p class="text-center mt-2"> <%= current_user.nickname %> </p>
                 <hr>
                 <p class="dropdown-item">
