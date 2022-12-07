@@ -2,7 +2,7 @@
   <div class="row w-100 align-items-center bg-white ps-3">
     <div class="col-sm-12 col-md-6 mt-2">
       <h4> <strong> <%= @incident.incident_type %> </strong></h4>
-      <p class="mb-5"> Incidentes na região: <%= @incident.nearbys(0.5).count(:all) %>
+      <p class="mb-5">Incidentes na região: <%= @incident.nearbys(0.5).count(:all) %>
       </p>
       <div class="mt-5 mb-4">
         <%= image_tag "https://res.cloudinary.com/dwvglguvp/image/upload/c_crop,w_798/v1669987359/development/vigilante/1000_F_518511462_iNQzBBvxZNVwTw9DRyVyjh5X27HPJbJ2_rfdkih.jpg",
@@ -16,7 +16,7 @@
       <% if policy(@incident).destroy? %>
         <%= link_to "Deletar", incident_path(@incident), data: {turbo_method: :delete, turbo_confirm: "Tem certeza?"}, class: 'btn btn-outline-secondary rounded-pill mt-3'%>
       <% end %>
-      <% chat = Chatroom.find_by(incident: @incident, user_two: current_user) %>
+      <% chat = Chatroom.find_by(incident: @incident.user, user_two: current_user) %>
       <% if chat.present? %>
         <%= link_to "Chat", chatroom_path(chat), class: 'btn btn-outline-secondary rounded-pill mt-3' %>
       <% else %>
