@@ -1,6 +1,6 @@
 <div id="message-<%= message.id %>">
   <div class="message-chat message-user-<%= message.user.id %>">
-    <%#= image_tag url_for(message.user.photo), class: "avatar-chat" %>
+    <%= cl_image_tag current_user.photo.key, :width=>50, :height=>50, :gravity=>"face", :crop=>"fill", class:"avatar dropdown-toggle", id:"navbarDropdown", "type" => "button", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" %>
 
     <div class="d-flex w-100 gap-chat flex-column">
       <small>
