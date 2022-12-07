@@ -5,6 +5,8 @@ after_action :skip_authorization
     # authorize @chatroom
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    @chatrooms_all = policy_scope(Chatroom)
+    @chatrooms = Chatroom.where(user: current_user)
   end
 
   def create
