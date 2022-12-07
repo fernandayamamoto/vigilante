@@ -1,9 +1,9 @@
-<div class="container d-flex align-items-center">
+<div class="container chat-grid">
   <div class="chatrooms">
     <h2>Chatrooms</h2>
     <ul class="list-group">
       <% @chatrooms.each do |chat| %>
-        <li><%= link_to chat.name, chatroom_path(chat) %></li>
+        <li><%= image_tag "boy.png", class: "avatar-chat" %> <%= link_to chat.name, chatroom_path(chat) %></li>
       <% end %>
     </ul>
   </div>
@@ -18,7 +18,7 @@
 
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
+        <%= render "messages/message", message: message, incident: @incident %>
       <% end %>
     </div>
 
@@ -28,7 +28,7 @@
       <%= f.input :content,
         label: false,
         placeholder: "Message ##{@chatroom.name}",
-        wrapper_html: {class: "flex-grow-1", style: "margin-bottom: 0px !important"}
+        wrapper_html: {style: "margin-bottom: 0px !important; width: 100%;"}
       %>
       <%= f.submit "Enviar", class: "btn mb-3" %>
     <% end %>
