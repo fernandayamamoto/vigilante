@@ -3,11 +3,9 @@
     <%= link_to home_path, class: "navbar-brand" do %>
       <%= "VIG!LANTE" %>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
@@ -21,7 +19,6 @@
               <%= "Comunicar B.O" %>
             <% end %>
           </li>
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false", aria-haspopup= "true">
               Bairros
@@ -31,25 +28,24 @@
               <li><%= link_to "Podes", '/list_2', class: "dropdown-item" %></li>
             </ul>
           </li>
-
           <li class="nav-item dropdown">
-           <%if current_user && current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, :width=>50, :height=>50, :gravity=>"face", :crop=>"fill", class:"avatar dropdown-toggle", id:"navbarDropdown", "type" => "button", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" %>              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%elsif current_user && !current_user.photo.attached?%>
-            <%=image_tag "alert.png", :width=>25, :height=>25, :gravity=>"face", :crop=>"fill", class:"avatar dropdown-toggle", id:"navbarDropdown", "type" => "button", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"%>
-          <% end %>
-                <p class="text-center mt-2"> <%= current_user.nickname %> </p>
-                <hr>
-                <p class="dropdown-item">
-                  <% chat = Chatroom.where(user: current_user).or(Chatroom.where(user_two: current_user)) %>
-                    <% if chat.present? %>
-                      <%= link_to "Chatrooms", chatroom_path(chat[0]), class: 'text-decoration-none text-dark' %>
-                    <% end %>
-                </p>
-                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              </div>
+            <%if current_user && current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, :width=>50, :height=>50, :gravity=>"face", :crop=>"fill", class:"avatar dropdown-toggle", id:"navbarDropdown", "type" => "button", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%elsif current_user && !current_user.photo.attached?%>
+                <%=image_tag "alert.png", :width=>25, :height=>25, :gravity=>"face", :crop=>"fill", class:"avatar dropdown-toggle", id:"navbarDropdown", "type" => "button", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"%>
+              <% end %>
+              <p class="text-center mt-2"> <%= current_user.nickname %> </p>
+              <hr>
+              <p class="dropdown-item">
+                <% chat = Chatroom.where(user: current_user).or(Chatroom.where(user_two: current_user)) %>
+                <% if chat.present? %>
+                  <%= link_to "Chatrooms", chatroom_path(chat[0]), class: 'text-decoration-none text-dark' %>
+                <% end %>
+              </p>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
           </li>
-
         <% else %>
           <li class="nav-item" >
             <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
