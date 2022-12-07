@@ -37,13 +37,15 @@
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <p class="text-center mt-2"> <%= current_user.nickname %> </p>
                 <hr>
-                <% chat = Chatroom.where(user: current_user).or(Chatroom.where(user_two: current_user)) %>
-                  <% if chat.present? %>
-                    <%= link_to "Chatrooms", chatroom_path(chat[0]) %>
-                  <% end %>
+                <p class="dropdown-item d-print-none">
+                  <% chat = Chatroom.where(user: current_user).or(Chatroom.where(user_two: current_user)) %>
+                    <% if chat.present? %>
+                      <%= link_to "Chatrooms", chatroom_path(chat[0]) %>
+                    <% end %>
+                </p>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
-            </li>
+          </li>
 
         <% else %>
           <li class="nav-item" >
