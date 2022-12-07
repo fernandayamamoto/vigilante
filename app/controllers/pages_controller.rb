@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:landing]
 
   def home
     @incidents = Incident.all
@@ -28,5 +28,8 @@ class PagesController < ApplicationController
 
       }
     end
+  end
+
+  def landing
   end
 end
