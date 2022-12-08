@@ -6,11 +6,11 @@
 
     <div class="container ">
       <ol class="danger-list">
-        <li> Capão Redondo: <%= Incident.near([-23.662935, -46.766866],5).count(:all) %> incidentes </li>
         <li> Campo Limpo: <%= Incident.near([-23.632947704703927, -46.7555051841067],5).count(:all) %> incidentes </li>
+        <li> Capão Redondo: <%= Incident.near([-23.662935, -46.766866],5).count(:all) %> incidentes </li>
         <li> Taboão: <%= Incident.near([-23.669117, -46.606639],5).count(:all) %> incidentes </li>
+        <li> Santana: <%= Incident.near([-23.489438, -46.626297],5).count(:all) %> incidentes </li>
         <li> Guaianases: <%= Incident.near([-23.555267, -46.412053],5).count(:all) %> incidentes </li>
-        <li> Santana: <%= Incident.near([-23.669117, -46.606639],5).count(:all) %> incidentes </li>
       </ol>
     </div>
   </main>
