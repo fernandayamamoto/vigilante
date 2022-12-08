@@ -4,8 +4,10 @@
 
     <div class="d-flex w-100 gap-chat flex-column">
       <small class="container-white">
-        <% if message.chatroom.user.avatar %>
-          <%= image_tag message.chatroom.user.avatar, class: "avatar-chat" %>
+        <% if message.user.photo.attached? %>
+          <%= cl_image_tag message.user.photo.key, class: "avatar-chat" %>
+        <% else %>
+          <%= image_tag ("avatar.png"), class: "avatar-chat"  %>
         <% end %>
         <strong><%= message.user.nickname %></strong>
         <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
