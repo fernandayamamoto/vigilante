@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :chatrooms
+  has_one_attached :photo
   validates :nickname, presence: true
 end
