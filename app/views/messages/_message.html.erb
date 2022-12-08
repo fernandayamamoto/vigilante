@@ -3,7 +3,10 @@
     <%#= image_tag url_for(message.user.photo), class: "avatar-chat" %>
 
     <div class="d-flex w-100 gap-chat flex-column">
-      <small>
+      <small class="container-white">
+        <% if message.chatroom.user.avatar %>
+          <%= image_tag message.chatroom.user.avatar, class: "avatar-chat" %>
+        <% end %>
         <strong><%= message.user.nickname %></strong>
         <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
       </small>
