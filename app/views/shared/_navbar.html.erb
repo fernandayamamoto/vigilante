@@ -12,23 +12,23 @@
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to new_incident_path, class: "nav-link btn text-white" do %>
+            <%= link_to new_incident_path, class: "nav-link text-white" do %>
               <%= "Relatar incidente" %>
             <% end %>
           </li>
           <li class="nav-item active">
-            <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia",target: '_blank', class: "nav-link btn text-white" do %>
+            <%= link_to "https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia",target: '_blank', class: "nav-link text-white" do %>
               <%= "Comunicar B.O" %>
             <% end %>
           </li>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false", aria-haspopup= "true">
-              Bairros
+              Ranking bairros
             </a>
             <ul class="dropdown-menu dropdown-menu-light">
-              <li><%= link_to "Não podes", list_path, class: "dropdown-item" %></li>
-              <li><%= link_to "Podes", '/list_2', class: "dropdown-item" %></li>
+              <li><%= link_to "Mais perigosos", list_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Mais seguros", '/list_2', class: "dropdown-item" %></li>
             </ul>
           </li>
 
