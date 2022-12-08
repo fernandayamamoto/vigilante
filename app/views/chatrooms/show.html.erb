@@ -3,8 +3,8 @@
     <h2>Chatrooms</h2>
     <ul class="list-group">
       <% @chatrooms.each do |chat| %>
-        <% if chat.user_two.photo.attached? %>
-          <li><%= cl_image_tag chat.user_two.photo.key, class: "avatar-chat" %> <%= link_to chat.name, chatroom_path(chat) %></li>
+        <% if chat.user.photo.attached? %>
+          <li><%= cl_image_tag chat.user.photo.key, class: "avatar-chat" %> <%= link_to chat.name, chatroom_path(chat) %></li>
         <% else %>
           <li><%= image_tag "avatar.png", class: "avatar-chat" %> <%= link_to chat.name, chatroom_path(chat) %></li>
         <% end %>
