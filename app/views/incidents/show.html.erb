@@ -10,7 +10,7 @@
           style:"width:150px; height:150px;"%>
         </div>
         <p> <i class="fa-solid fa-location-dot"></i> <%= @incident.location %></p>
-        <p><strong>Descrição:</strong>"<%= @incident.description%>"</p>
+        <p><strong>Descrição: </strong><%= @incident.description%></p>
         <% if policy(@incident).edit? %>
           <%= link_to "Editar", edit_incident_path(@incident), class: 'btn btn-outline-secondary rounded-pill mt-3' %>
 

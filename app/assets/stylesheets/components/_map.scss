@@ -3,6 +3,10 @@
 }
 .mapboxgl-popup.roubo {
   max-width: 200px;
+  color: white;
+  a.text-dark {
+    color: white !important;
+  }
 
   .mapboxgl-popup-content {
     background: #FF5555 !important;
@@ -35,7 +39,7 @@
 
 .mapboxgl-popup.outros {
   max-width: 200px;
-  a.text-dark {
+ a.text-dark {
     color: white !important;
   }
 
@@ -68,5 +72,4 @@ width: 100%;
 
 .map-container{
   height: calc(100vh - 58px);
-  
 }
