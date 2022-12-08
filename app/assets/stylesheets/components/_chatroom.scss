@@ -20,7 +20,8 @@
 
   .messages {
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -100,8 +101,6 @@
   border-radius: 1rem;
   margin-right: 1rem;
 
-
-
   h2 {
     border-bottom: 1px solid gray;
     margin-bottom: 0;
@@ -110,8 +109,11 @@
   }
 
   ul {
+    margin-top: 0.5rem;
     list-style: none;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
 
     li {
       padding: 0.5rem 0;
