@@ -23,15 +23,14 @@
   }
 
   .messages {
-    max-height: 42vh;
-    overflow-y: scroll;
+    height: 100%;
+    overflow-y: auto;
     overflow-x: hidden;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 100%;
-
   }
 
   #new_message {
@@ -116,7 +115,11 @@
   }
 
   ul {
+    margin-top: 0.5rem;
     list-style: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
 
     li {
       padding: 0.5rem 0;
