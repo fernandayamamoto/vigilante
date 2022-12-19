@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Um aplicativo de segurança que mapeia áreas mais seguras da cidade, e traça rotas baseado em markers de incidentes. Utiliza input em tempo real e crowdsourcing.
